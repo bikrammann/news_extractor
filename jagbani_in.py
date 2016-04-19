@@ -88,7 +88,7 @@ def get_full_news():
             if not url_exists(url_addr[i]):
                 with open('Files/jagbani_news.txt', 'a', encoding="utf-8") as f:
                     f.writelines(title[i].strip() + '\n')
-                    f.writelines(message[i].strip() + '\n')
+                    f.writelines(message[i].replace('\n', '').replace('\r', '') + '\n')
                     f.write("Source : {}".format(url_addr[i]) + '\n')
                     f.write('\n')
                     add_to_crawled_list(url_addr[i])
